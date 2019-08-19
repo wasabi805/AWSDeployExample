@@ -4,7 +4,6 @@ const app = express();
 if(process.env.NODE_ENV === 'production'){
     app.use(express.static('dist'));
     app.get('*', (req, res)=>{
-        res.setHeader('Content-Security-Policy', "script-src 'self'");
         res.sendFile(path.resolve(__dirname, 'dist', 'index.html'))
     })
 }
